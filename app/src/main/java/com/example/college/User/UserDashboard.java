@@ -32,7 +32,6 @@ public class UserDashboard extends AppCompatActivity implements DeptAdapter.onDe
     RecyclerView.Adapter adapter;
     ArrayList<DeptHelperClass> deptLocations = new ArrayList<>();
     ArrayList<CollegeHelperClass> collegeLocations = new ArrayList<>();
-    //asas
     ImageView menuIcon;
     static final float END_SCALE = 0.7f;
     //DrawerMenu

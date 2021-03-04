@@ -24,7 +24,21 @@ public class StartUpScreen extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Login.class);
 
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View,String>(findViewById(R.id.login_startup_btn),"transition_login");
+        pairs[0] = new Pair<View,String>(findViewById(R.id.login_btn),"transition_login");
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartUpScreen.this,pairs);
+            startActivity(intent,options.toBundle());
+        }
+        else
+            startActivity(intent);
+
+    }
+    public void callSignupScreen(View view){
+        Intent intent = new Intent(getApplicationContext(),SignUp.class);
+
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View,String>(findViewById(R.id.sign_startup_btn),"transition_signup");
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartUpScreen.this,pairs);

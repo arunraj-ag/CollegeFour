@@ -37,26 +37,28 @@
             android:layout_marginTop="40dp">
 
             <Button
-                android:id="@+id/login_startup_btn"
+                android:id="@+id/login_btn"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:onClick="callLoginScreen"
                 android:text="login"
                 android:textColor="@color/ColorPrimaryDark"
                 app:backgroundTint="@color/colorPrimary"
                 android:transitionName="transition_login"/>
 
             <Button
-                android:id="@+id/signup_startup_btn"
+                android:id="@+id/sign_startup_btn"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:onClick="callLoginScreen"
                 android:text="SignUp"
+                android:onClick="callSignupScreen"
                 android:textColor="@color/colorPrimary"
-                app:backgroundTint="@color/ColorPrimaryDark" />
+                app:backgroundTint="@color/ColorPrimaryDark"
+                android:transitionName="transition_signup"/>
         </LinearLayout>
 
         <Button

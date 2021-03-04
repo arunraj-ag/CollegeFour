@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.College">
-        <activity android:name=".Common.LoginSignup.Login"></activity>
+        <activity android:name=".Common.LoginSignup.signup_third_class"></activity>
+        <activity android:name=".Common.LoginSignup.Signups2ndClass" />
+        <activity android:name=".Common.LoginSignup.SignUp" />
+        <activity android:name=".Common.LoginSignup.Login" />
         <activity android:name=".Common.LoginSignup.StartUpScreen" />
         <activity android:name=".User.Features" />
         <activity android:name=".User.auto_engg" />

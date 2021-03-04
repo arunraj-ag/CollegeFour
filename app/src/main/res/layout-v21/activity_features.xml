@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User.Features"
     android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_margin="1dp"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -42,8 +41,8 @@
             android:layout_height="150dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -90,8 +89,8 @@
             android:layout_height="150dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -140,8 +139,8 @@
             android:layout_height="150dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -185,8 +184,8 @@
             android:layout_height="150dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -199,6 +198,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/placement"
+                    android:layout_alignParentEnd="true"
                     android:textSize="20sp"
                     android:fontFamily="@font/josefin_regular"
                     android:textColor="@color/white"
@@ -212,6 +212,8 @@
                     android:text="@string/get_eventual_updates_about_placements_in_our_college"
                     android:layout_below="@+id/placement_card_title"
                     android:fontFamily="@font/josefin_regular"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="viewEnd"
                     android:textSize="18sp"
                     android:textColor="@color/ColorPrimaryDark"
                     android:layout_marginTop="5dp"
@@ -220,7 +222,6 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="200dp"
-                    android:layout_alignParentEnd="true"
                     android:src="@drawable/placement_img"
                     android:contentDescription="@string/placement_img" />
 

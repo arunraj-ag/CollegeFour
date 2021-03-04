@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".Common.LoginSignup.Signups2ndClass"
+    android:background="@color/colorPrimary"
+    android:padding="10dp">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/sign2_back_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="5dp"
+            android:src="@drawable/back_btn_white"
+            android:transitionName="transition_back_arrow_btn2" />
+
+        <TextView
+            android:id="@+id/signup2_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create \nAccount"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="@font/josefin_regular"
+            android:textSize="40sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="20dp"
+            android:transitionName="transition_title_text2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/choose_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Gender"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
+                    android:layout_height="wrap_content"
+                    android:text="Others" />
+            </RadioGroup>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+            <TextView
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Your Age"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+            <DatePicker
+                android:layout_marginTop="10dp"
+                android:layout_width="250dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:background="@color/white"
+                android:calendarViewShown="false"
+                android:spinnersShown="true"/>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/signu2_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:backgroundTint="@color/ColorPrimaryDark"
+            android:onClick="callNextSignupthreeScreen"
+            android:fontFamily="@font/josefin_regular"
+            android:layout_marginTop="20dp"
+            android:elevation="5dp"
+            android:transitionName="transition_next_btn2"/>
+
+        <Button
+            android:id="@+id/signup2_login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textColor="@color/ColorPrimaryDark"
+            android:backgroundTint="@color/transparent"
+            android:fontFamily="@font/josefin_regular"
+            android:layout_marginTop="20dp"
+            android:elevation="5dp"
+            android:transitionName="transition_login_btn"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>
