@@ -25,24 +25,45 @@
             android:src="@drawable/back_btn_white"
             android:transitionName="transition_back_arrow_btn2" />
 
-        <TextView
-            android:id="@+id/signup2_title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create \nAccount"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:fontFamily="@font/josefin_regular"
-            android:textSize="40sp"
-            android:textAllCaps="true"
-            android:layout_marginTop="20dp"
-            android:transitionName="transition_title_text2"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/signup2_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create \nAccount"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/josefin_regular"
+                android:textSize="40sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="20dp"
+                android:transitionName="transition_title_text2"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:textSize="40sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:fontFamily="@font/josefin_regular"
+                android:layout_height="wrap_content"
+                android:text="2/3" />
+
+
+        </RelativeLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/choose_gender"
@@ -53,6 +74,7 @@
                 android:textColor="@color/white"/>
 
             <RadioGroup
+                android:id="@+id/radio_grp_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -60,7 +82,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/male_radio_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -68,7 +90,7 @@
                     android:text="Male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/female_radio_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -76,7 +98,7 @@
                     android:text="Female" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/others_radio_btn"
                     android:layout_width="wrap_content"
                     android:textColor="@color/white"
                     android:buttonTint="@color/white"
@@ -98,6 +120,7 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"/>
             <DatePicker
+                android:id="@+id/dob_picker"
                 android:layout_marginTop="10dp"
                 android:layout_width="250dp"
                 android:layout_gravity="center"
@@ -134,7 +157,6 @@
             android:layout_marginTop="20dp"
             android:elevation="5dp"
             android:transitionName="transition_login_btn"/>
-
 
 
     </LinearLayout>

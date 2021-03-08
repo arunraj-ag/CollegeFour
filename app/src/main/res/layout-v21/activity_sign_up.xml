@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Common.LoginSignup.signup_third_class"
+    tools:context=".Common.LoginSignup.SignUp"
     android:background="@color/colorPrimary"
     android:padding="10dp">
 
@@ -23,6 +23,7 @@
             android:padding="5dp"
             android:src="@drawable/back_btn_white"
             android:transitionName="transition_back_arrow_btn" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -50,9 +51,11 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/josefin_regular"
                 android:layout_height="wrap_content"
-                android:text="3/3" />
+                android:text="@string/_1_3" />
+
 
         </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,11 +64,11 @@
             android:layout_marginTop="40dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phone_number"
+                android:id="@+id/signup_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                app:startIconDrawable="@drawable/phone_number_icon_white"
+                android:hint="Full Name"
+                app:startIconDrawable="@drawable/edit_text_icon_white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconTint="@color/white"
                 app:hintTextColor="@color/white"
@@ -80,37 +83,15 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:fontFamily="@font/josefin_regular"
-                    android:inputType="phone"/>
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-
-        <Button
-            android:id="@+id/signuthree_send_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SEND"
-            android:backgroundTint="@color/ColorPrimaryDark"
-            android:onClick="sendCode"
-            android:fontFamily="@font/josefin_regular"
-            android:layout_marginTop="10dp"
-            android:elevation="5dp"
-            android:transitionName="transition_next_btn"/>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="70dp">
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/verification_code"
+                android:id="@+id/signup_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Verification Code"
-                app:startIconDrawable="@drawable/phone_number_icon_white"
+                android:hint="User Name"
+                app:startIconDrawable="@drawable/profile_icon_white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconTint="@color/white"
                 app:hintTextColor="@color/white"
@@ -125,34 +106,69 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:fontFamily="@font/josefin_regular"
-                    android:inputType="phone"/>
+                    android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                android:id="@+id/resend_txtview"
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_email"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Resend OTP"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/ColorPrimaryDark"
-                android:fontFamily="@font/josefin_regular"
-                android:onClick="resendCode"
-                android:elevation="5dp"
-                android:transitionName="transition_next_btn"/>
+                android:hint="Email"
+                app:startIconDrawable="@drawable/email_icon_white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/white"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/white"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/josefin_regular"
+                    android:textColor="@color/white"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                app:startIconDrawable="@drawable/password_icon_white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/white"
+                app:hintTextColor="@color/white"
+                android:textColorHint="@color/white"
+                app:endIconMode="password_toggle"
+                app:passwordToggleEnabled="true"
+                app:endIconTint="@color/white"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/josefin_regular"
+                    android:textColor="@color/white"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
+
         <Button
-            android:id="@+id/signup_three_submit_btn"
-            android:layout_width="150dp"
-            android:layout_gravity="center"
+            android:id="@+id/signu_next_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/ColorPrimaryDark"
             android:elevation="5dp"
             android:fontFamily="@font/josefin_regular"
-            android:onClick="submitCode"
-            android:text="SUBMIT"
+            android:onClick="callNextScreen"
+            android:text="@string/next"
             android:transitionName="transition_next_btn" />
 
         <Button
@@ -167,6 +183,8 @@
             android:elevation="5dp"
             android:transitionName="transition_login_btn"/>
 
+
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

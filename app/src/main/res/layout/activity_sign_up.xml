@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,18 +24,38 @@
             android:src="@drawable/back_btn_white"
             android:transitionName="transition_back_arrow_btn" />
 
-        <TextView
-            android:id="@+id/signup_title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create \nAccount"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:fontFamily="@font/josefin_regular"
-            android:textSize="40sp"
-            android:textAllCaps="true"
-            android:layout_marginTop="20dp"
-            android:transitionName="transition_title_text"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/signup_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create \nAccount"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/josefin_regular"
+                android:textSize="40sp"
+                android:textAllCaps="true"
+                android:layout_marginTop="20dp"
+                android:transitionName="transition_title_text"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:textSize="40sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:fontFamily="@font/josefin_regular"
+                android:layout_height="wrap_content"
+                android:text="1/3" />
+
+
+        </RelativeLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +64,7 @@
             android:layout_marginTop="40dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_full_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Full Name"
@@ -60,11 +81,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/josefin_regular"
                     android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="User Name"
@@ -81,11 +104,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/josefin_regular"
                     android:inputType="text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
@@ -103,9 +128,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/josefin_regular"
+                    android:textColor="@color/white"
                     android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
@@ -124,6 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/josefin_regular"
+                    android:textColor="@color/white"
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,13 +163,13 @@
             android:id="@+id/signu_next_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NEXT"
-            android:backgroundTint="@color/ColorPrimaryDark"
-            android:onClick="callNextSignupScreen"
-            android:fontFamily="@font/josefin_regular"
             android:layout_marginTop="20dp"
+            android:backgroundTint="@color/ColorPrimaryDark"
             android:elevation="5dp"
-            android:transitionName="transition_next_btn"/>
+            android:fontFamily="@font/josefin_regular"
+            android:onClick="callNextScreen"
+            android:text="NEXT"
+            android:transitionName="transition_next_btn" />
 
         <Button
             android:id="@+id/signup_login_btn"
@@ -158,4 +187,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
