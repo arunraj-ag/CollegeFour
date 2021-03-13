@@ -29,32 +29,14 @@ import java.util.concurrent.TimeUnit;
 
 public class VerifyOTP extends AppCompatActivity {
 
-    PinView pinfromUser;
-    TextView phone_number_view;
-    String _phoneNo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_o_t_p);
 
-        phone_number_view = findViewById(R.id.phone_view);
-        pinfromUser = findViewById(R.id.pinView);
-
-        _phoneNo = getIntent().getStringExtra("phone_number");
-        phone_number_view.setText(_phoneNo);
-
-        verifyPIN();
-
 
     }
 
-    private void verifyPIN() {
-        String phoneNumebr =_phoneNo;
-        PhoneAuthProvider.getInstance();
-    }
-
-    public void callNextScreenfromOTP(View view){
-
-    }
 }

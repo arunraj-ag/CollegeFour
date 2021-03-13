@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.college.Databases.UserHelperClass;
 import com.example.college.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,6 +29,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.hbb20.CountryCodePicker;
 
 import java.util.Objects;
@@ -39,6 +42,7 @@ public class signup_third_class extends AppCompatActivity {
     Button next, login,submit;
     TextView title_text;
     TextInputLayout phone_num,verification_code;
+    String fullName,eMail,userName,passWord,date,gender,phoneNumber,phoneNumb;
     private PhoneAuthProvider.ForceResendingToken forceResendingToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String mVerificationID;
@@ -52,11 +56,22 @@ public class signup_third_class extends AppCompatActivity {
         back_btn = findViewById(R.id.sign_back_btn);
         login = findViewById(R.id.signup_login_btn);
         title_text = findViewById(R.id.signup_title_text);
-
         phone_num = findViewById(R.id.phone_number);
         next = findViewById(R.id.signuthree_send_btn);
         submit = findViewById(R.id.signup_three_submit_btn);
         verification_code = findViewById(R.id.verification_code);
+        phoneNumb = phone_num.getEditText().getText().toString().trim();
+        phoneNumber = "+91"+phoneNumb.toString();
+
+
+         fullName = getIntent().getStringExtra("fullName");
+         eMail = getIntent().getStringExtra("email_");
+         userName = getIntent().getStringExtra("user_name");
+         passWord = getIntent().getStringExtra("password_");
+         date = getIntent().getStringExtra("date");
+         gender = getIntent().getStringExtra("gender");
+
+
 
        firebaseAuth = FirebaseAuth.getInstance();
        pd = new ProgressDialog(this);
@@ -87,15 +102,17 @@ public class signup_third_class extends AppCompatActivity {
            }
        };
     }
+
+
     public void sendCode(View v){
-        String phoneNumber = phone_num.getEditText().getText().toString().trim();
+        String phoneNumb = phone_num.getEditText().getText().toString().trim();
+        String phoneNumber ="+91"+phoneNumb.toString();
         if (TextUtils.isEmpty(phoneNumber))
             Toast.makeText(this, "Please Enter Phone Number", Toast.LENGTH_SHORT).show();
         else{
             startPhoneNumberVerification(phoneNumber);
         }
     }
-
     private void startPhoneNumberVerification(String phoneNumber) {
         pd.setMessage("Verifying Phone Number");
         pd.show();
@@ -110,7 +127,6 @@ public class signup_third_class extends AppCompatActivity {
 
 
 
-
     public void resendCode(View v){
         String phoneNumber = phone_num.getEditText().getText().toString().trim();
         if (TextUtils.isEmpty(phoneNumber))
@@ -119,7 +135,6 @@ public class signup_third_class extends AppCompatActivity {
             resendVerificationCode(phoneNumber,forceResendingToken);
         }
     }
-
     private void resendVerificationCode(String phoneNumber,PhoneAuthProvider.ForceResendingToken token) {
     pd.setMessage("Resending Code");
     pd.show();
@@ -133,10 +148,6 @@ public class signup_third_class extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-
-
-
-
     public void submitCode(View v){
         String code = verification_code.getEditText().getText().toString().trim();
         if (TextUtils.isEmpty(code)){
@@ -146,38 +157,44 @@ public class signup_third_class extends AppCompatActivity {
             verifyPhoneNumberWithCode(mVerificationID,code);
         }
     }
-
     private void verifyPhoneNumberWithCode(String mVerificationID, String code) {
         pd.setMessage("Verifying Code");
         pd.show();
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationID,code);
         signInWithPhoneAuthCredential(credential);
     }
-
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         pd.setMessage("Logging In");
         firebaseAuth.signInWithCredential(credential)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        pd.dismiss();
-                        String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
-                        Toast.makeText(signup_third_class.this, "Logged in as "+phone, Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(signup_third_class.this,SignInSuccessfull.class));
-                    }
+                .addOnSuccessListener(authResult -> {
+                    pd.dismiss();
+                    String phone = firebaseAuth.getCurrentUser().getPhoneNumber();
+                    String phoneNumb = phone_num.getEditText().getText().toString().trim();
+                    String phoneNumber ="+91"+phoneNumb.toString();
+                    Toast.makeText(signup_third_class.this, "Verification SuccessFul", Toast.LENGTH_SHORT).show();
+                    storeNewUsersData(phoneNumber);
+                    Intent intent = new Intent(signup_third_class.this,Login.class);
+                    startActivity(intent);
+                    finish();
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        pd.dismiss();
-                        Toast.makeText(signup_third_class.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                .addOnFailureListener(e -> {
+                    pd.dismiss();
+                    Toast.makeText(signup_third_class.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
 
     }
 
+    private void storeNewUsersData(String phone) {
+        FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootNode.getReference("Users");
 
-    private boolean validatePhoneNumber() {
+        UserHelperClass addNewUser = new UserHelperClass(fullName,userName,eMail,phone,passWord,date,gender);
+        reference.child(phone).setValue(addNewUser);
+
+    }
+
+
+    /*private boolean validatePhoneNumber() {
         String phone_numberInput =phone_num.getEditText().getText().toString().trim();
 
         if (phone_numberInput.isEmpty()) {
@@ -192,7 +209,7 @@ public class signup_third_class extends AppCompatActivity {
         }
 
     }
-    /*public void callVerifyOTPScreen(View view) {
+    public void callVerifyOTPScreen(View view) {
 
         if (validatePhoneNumber()){
             String fullName = getIntent().getStringExtra("full_name");

@@ -43,29 +43,30 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/phone_number_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Email"
+                android:hint="Phone Number"
+                app:startIconDrawable="@drawable/phone_number_icon_white"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/white"
+                app:hintTextColor="@color/white"
                 android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/white"
-                app:startIconDrawable="@drawable/profile_icon_white"
-                app:startIconTint="@color/white">
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login_edittext"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/josefin_regular"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/white" />
-
+                    android:inputType="phone"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_login"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,15 +108,18 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:background="#00000000"
+                    android:onClick="callForgetPassword"
                     android:text="Forgot Password"
                     android:textColor="@color/white" />
 
             </RelativeLayout>
 
             <Button
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:onClick="letUserLogin"
                 android:background="@color/white"
                 android:text="@string/login_text" />
 

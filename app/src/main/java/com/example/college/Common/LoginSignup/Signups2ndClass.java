@@ -27,6 +27,8 @@ public class Signups2ndClass extends AppCompatActivity {
     RadioButton selectedGender;
     DatePicker datePicker;
 
+    String fullName,eMail,userName,passWord,date,gender;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,13 @@ public class Signups2ndClass extends AppCompatActivity {
         title_text2 = findViewById(R.id.signup2_title_text);
         radioGroup = findViewById(R.id.radio_grp_gender);
         datePicker = findViewById(R.id.dob_picker);
+
+        fullName = getIntent().getStringExtra("full_name");
+        eMail = getIntent().getStringExtra("email_");
+        userName = getIntent().getStringExtra("user_name");
+        passWord = getIntent().getStringExtra("password_");
+        date = getIntent().getStringExtra("date");
+        gender = getIntent().getStringExtra("gender");
 
     }
 
@@ -69,13 +78,17 @@ public class Signups2ndClass extends AppCompatActivity {
             String gender = selectedGender.getText().toString();
 
             int day = datePicker.getDayOfMonth();
-            int month = datePicker.getMonth();
+            int month = datePicker.getMonth()+1;
             int year = datePicker.getYear();
             String date = day + "/" + month + "/" + year;
 
             Intent intent = new Intent(getApplicationContext(), signup_third_class.class);
             intent.putExtra("date", date);
             intent.putExtra("gender", gender);
+            intent.putExtra("fullName",fullName);
+            intent.putExtra("email_",eMail);
+            intent.putExtra("user_name",userName);
+            intent.putExtra("password_",passWord);
 
             Pair[] pairs = new Pair[4];
 
